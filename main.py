@@ -1,16 +1,20 @@
-# This is a sample Python script.
+import portfolio
 
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+stocks = {"AAPL": 10, "GOOGL": 5, "MSFT": 8}
+prices = {"AAPL": 150.25, "GOOGL": 2500.75, "MSFT": 300.50}
+current_prices = {"AAPL": 160.25, "GOOGL": 350.75, "MSFT": 500.50}
 
+# Расчет общей стоимости портфеля
+total_value = portfolio.calculate_portfolio_value(stocks, prices)
+total_value_current = portfolio.calculate_portfolio_value(stocks, current_prices)
+print("Начальная стоимость портфеля акций:", total_value)
+print("Общая стоимость портфеля акций:", total_value_current)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Расчет доходности портфеля
+portfolio_return = portfolio.calculate_portfolio_return(total_value, total_value_current)
+print("Процентная доходность портфеля:", portfolio_return)
 
+# Наиболее прибыльная акция
+most_profitable_stock = portfolio.get_most_profitable_stock(stocks, current_prices)
+print("Наиболее прибыльная акция:", most_profitable_stock)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
